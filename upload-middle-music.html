@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISTRIBUTION FORM | MIDDLE MUSIC</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #ff0000;
+            font-family: 'Dela Gothic One', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 30px; text-align: center; }
+
+        form {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+
+        label { font-size: 0.75rem; text-transform: uppercase; }
+
+        input, textarea, select {
+            padding: 15px;
+            border: 3px solid #ff0000;
+            background: transparent;
+            color: #ff0000;
+            font-family: 'Dela Gothic One', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        select { cursor: pointer; text-transform: uppercase; }
+        option { background: #ffffff; color: #ff0000; }
+
+        input:focus, textarea:focus, select:focus { background-color: #fff5f5; }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 25px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-family: 'Dela Gothic One', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover { opacity: 0.9; transform: scale(1.01); }
+
+        .note { font-size: 0.7rem; margin-top: 20px; text-align: center; opacity: 0.8; line-height: 1.4; }
+
+        @media (max-width: 600px) {
+            .row { grid-template-columns: 1fr; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>RELEASE SUBMISSION</h1>
+
+    <form action="https://formspree.io/f/xpqjzlpr" method="POST">
+        
+        <div class="row">
+            <div class="input-group">
+                <label>Artist Name</label>
+                <input type="text" name="artist_name" required placeholder="LXNGT!ME">
+            </div>
+            <div class="input-group">
+                <label>ФИО (Real Name)</label>
+                <input type="text" name="real_name" required placeholder="ИВАНОВ ИВАН ИВАНОВИЧ">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <label>Release Name</label>
+                <input type="text" name="release_name" required placeholder="MONTAGEM NESTA">
+            </div>
+            <div class="input-group">
+                <label>Release Type</label>
+                <select name="release_type" required>
+                    <option value="track">TRACK</option>
+                    <option value="ep">EP</option>
+                    <option value="album">ALBUM</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <label>Date of out (Blank = ASAP)</label>
+                <input type="date" name="release_date">
+            </div>
+            <div class="input-group">
+                <label>Genre</label>
+                <select name="genre" required>
+                    <option value="phonk">PHONK</option>
+                    <option value="funk">FUNK</option>
+                    <option value="electronic">ELECTRONIC</option>
+                    <option value="rap">RAP</option>
+                    <option value="hiphop">HIPHOP</option>
+                    <option value="other">OTHER</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>.WAV Link (Full Pack link)</label>
+            <input type="url" name="wav_link" required placeholder="GOOGLE DRIVE / DROPBOX LINK">
+        </div>
+
+        <div class="input-group">
+            <label>Artwork Link (min 1500x1500px)</label>
+            <input type="url" name="art_link" required placeholder="JPG, JPEG, PNG LINK">
+        </div>
+
+        <div class="input-group">
+            <label>Promo (Available only if Date is set)</label>
+            <select name="promo_request">
+                <option value="no">NOT AVAILABLE / NO</option>
+                <option value="yes">YES (I want pitch for Spotify/Apple)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>More info about Artist & Release (For Promo)</label>
+            <textarea name="promo_info" rows="4" placeholder="BIO, HISTORY, SOCIAL LINKS..."></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Email for Contact</label>
+            <input type="email" name="contact_email" required placeholder="YOUR@MAIL.COM">
+        </div>
+
+        <input type="hidden" name="_subject" value="NEW RELEASE DATA: MIDDLE MUSIC">
+
+        <button type="submit" class="submit-btn">SUBMIT RELEASE</button>
+    </form>
+
+    <div class="note">
+        УБЕДИТЕСЬ, ЧТО ВСЕ ССЫЛКИ ИМЕЮТ ОТКРЫТЫЙ ДОСТУП.<br>
+        IF THE RELEASE DATE IS EMPTY, WE WILL RELEASE IT AS FAST AS POSSIBLE.
+    </div>
+
+</body>
+</html>
