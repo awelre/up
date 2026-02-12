@@ -1,13 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://label.middle.v6.rocks/upload">
-    <script>
-        window.location.replace("https://label.middle.v6.rocks/upload");
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBMIT RELEASE | FLASHSOUND</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --main-yellow: #ffdf00; 
+            --stroke: #000000;
+            --bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Dela Gothic One', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            color: var(--main-yellow);
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            line-height: 1;
+            /* Фирменная обводка FLASHSOUND */
+            text-shadow: 
+                -2px -2px 0 var(--stroke),  
+                 2px -2px 0 var(--stroke),
+                -2px  2px 0 var(--stroke),
+                 2px  2px 0 var(--stroke),
+                 4px  4px 0 var(--stroke);
+        }
+
+        form {
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            color: #000;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+            font-family: sans-serif;
+            font-weight: 900;
+            text-shadow: none;
+        }
+
+        input, select, textarea {
+            background: #fff;
+            border: 3px solid var(--stroke);
+            padding: 15px;
+            font-family: 'Dela Gothic One', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            box-shadow: 5px 5px 0 var(--main-yellow);
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            box-shadow: 7px 7px 0 var(--stroke);
+            transform: translate(-2px, -2px);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            grid-column: span 2;
+            background: var(--main-yellow);
+            border: 4px solid var(--stroke);
+            padding: 22px;
+            font-family: 'Dela Gothic One', sans-serif;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 6px 6px 0 var(--stroke);
+            transition: 0.1s;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 10px 10px 0 var(--stroke);
+        }
+
+        button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0 var(--stroke);
+        }
+
+        /* Адаптив под мобилки */
+        @media (max-width: 700px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            button {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    ПЕРЕНАПРАВЛЯЕМ В ПАНЕЛЬ ЗАГРУЗКИ...
+
+    <h1>RELEASE SUBMISSION</h1>
+
+    <form action="https://formspree.io/f/maqdeqeg" method="POST">
+        
+        <div class="input-group">
+            <label>ARTIST NAME / ПСЕВДОНИМ</label>
+            <input type="text" name="artist_name" placeholder="LXNGTIME" required>
+        </div>
+
+        <div class="input-group">
+            <label>REAL NAME / Ф.И.О.</label>
+            <input type="text" name="real_name" placeholder="ИВАНОВ ИВАН ИВАНОВИЧ" required>
+        </div>
+
+        <div class="input-group">
+            <label>RELEASE TITLE / НАЗВАНИЕ</label>
+            <input type="text" name="release_title" placeholder="MONTAGEM NESTA" required>
+        </div>
+
+        <div class="input-group">
+            <label>RELEASE TYPE / ТИП</label>
+            <select name="type">
+                <option value="single">SINGLE</option>
+                <option value="ep">EP</option>
+                <option value="album">ALBUM</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>RELEASE DATE / ЖЕЛАЕМАЯ ДАТА</label>
+            <input type="date" name="date" required>
+        </div>
+
+        <div class="input-group">
+            <label>GENRE / ЖАНР</label>
+            <input type="text" name="genre" placeholder="PHONK / HOUSE / TRAP" required>
+        </div>
+
+        <div class="input-group full-width">
+            <label>AUDIO LINK / ССЫЛКА НА ТРЕК (DRIVE / DROPBOX)</label>
+            <input type="url" name="audio_url" placeholder="HTTPS://DRIVE.GOOGLE.COM/..." required>
+        </div>
+
+        <div class="input-group full-width">
+            <label>ARTWORK LINK / ССЫЛКА НА ОБЛОЖКУ (3000X3000PX)</label>
+            <input type="url" name="art_url" placeholder="HTTPS://IMGUR.COM/..." required>
+        </div>
+
+        <div class="input-group full-width">
+            <label>INFO / BIO / SOCIAL LINKS / ПРОМО-ИНФО</label>
+            <textarea name="info" rows="5" placeholder="ССЫЛКИ НА СОЦСЕТИ И ОПИСАНИЕ РЕЛИЗА..."></textarea>
+        </div>
+
+        <div class="input-group full-width">
+            <label>CONTACT EMAIL / ПОЧТА ДЛЯ СВЯЗИ</label>
+            <input type="email" name="email" placeholder="YOUR@EMAIL.COM" required>
+        </div>
+
+        <button type="submit">SUBMIT RELEASE</button>
+
+    </form>
+
 </body>
 </html>
